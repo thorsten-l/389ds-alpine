@@ -25,5 +25,5 @@ jobs:
       run: docker buildx build --file Dockerfile --build-arg OS_VERSION="3.14"
             --build-arg DS_VERSION="1.4.4.17"
             --push 
-            --platform linux/amd64
-            --tag ghcr.io/thorsten-l/389ds-alpine:test-amd64 .
+            --platform linux/amd64,linux/arm64,linux/arm/v7
+            --tag ghcr.io/thorsten-l/389ds-alpine:test .
