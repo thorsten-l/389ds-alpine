@@ -15,5 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --build-arg OS_VERSION="3.14" --build-arg DS_VERSION="1.4.4.17"  --tag --tag ghcr.io/thorsten-l/389ds-alpine:test-amd64
-    
+      run: docker build . --file Dockerfile --build-arg OS_VERSION="3.14" \
+            --build-arg DS_VERSION="1.4.4.17" \
+            --tag ghcr.io/thorsten-l/389ds-alpine:test-amd64
