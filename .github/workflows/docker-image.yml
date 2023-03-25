@@ -14,6 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Log in to GitHub 
+      run: |
+        echo $CR_PAT | docker login ghcr.io -u thorsten-l --password-stdin
+      env:
+        CR_PAT: ${{ secrets.CR_PAT }}
+
     - name: Build the Docker image
       run: docker buildx build --file Dockerfile --build-arg OS_VERSION="3.14"
             --build-arg DS_VERSION="1.4.4.17"
